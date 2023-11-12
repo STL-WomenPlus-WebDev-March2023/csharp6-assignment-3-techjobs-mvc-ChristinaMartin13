@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TechJobsMVCAutograded6.Controllers;
@@ -38,7 +39,7 @@ public class ListController : Controller
         ViewBag.employers = JobData.GetAllEmployers();
         ViewBag.locations = JobData.GetAllLocations();
         ViewBag.positionTypes = JobData.GetAllPositionTypes();
-        ViewBag.skills = JobData.GetAllCoreCompetencies();
+       
 
         return View();
     }
@@ -48,23 +49,25 @@ public class ListController : Controller
     {
 
         List<Job> jobs = new List<Job>();
+        
 
-        if (string.IsNullOrEmpty(column) || value.ToLower() == "View All")
+        if (string.IsNullOrEmpty(column) || column.ToLower() == "all")
         {
 
-            jobs = JobData.FindAll().ToList();
+            jobs = JobData.FindAll();
+            ViewBag.title = "View All Jobs";
         }
         else
         {
-
             jobs = JobData.FindByColumnAndValue(column, value).ToList();
+            ViewBag.title = $"Jobs with {ColumnChoices[column]} : {value}";
         }
 
 
         ViewBag.Jobs = jobs;
-        ViewBag.Columns = ListController.ColumnChoices;
+        
 
-        return View("Index");
+        return View();
     } 
    
 }

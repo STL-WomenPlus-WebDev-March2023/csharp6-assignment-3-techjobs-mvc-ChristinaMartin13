@@ -5,7 +5,7 @@ using TechJobsMVCAutograded6.Models;
 
 namespace AutogradingTests;
 
-/*[TestClass]
+[TestClass]
 public class TestTaskFour
 {
     public TestTaskFour()
@@ -38,4 +38,4 @@ public class TestTaskFour
     }
 
 }
-*/
+
