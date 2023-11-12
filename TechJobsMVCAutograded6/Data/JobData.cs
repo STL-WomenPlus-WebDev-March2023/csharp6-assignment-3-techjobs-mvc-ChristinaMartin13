@@ -277,5 +277,9 @@ public class JobData
         return AllCoreCompetencies;
     }
 
+    internal static List<Job> FindJobsByColumnAndValue(string column, string value)
+    {
+        throw new NotImplementedException();
+    }
 }
 
