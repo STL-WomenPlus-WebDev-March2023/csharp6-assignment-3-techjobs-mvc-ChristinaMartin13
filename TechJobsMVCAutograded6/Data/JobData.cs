@@ -31,7 +31,7 @@ public class JobData
 
         List<Job> jobs = new List<Job>();
 
-        if (value.ToLower().Equals("all"))
+        if (String.IsNullOrEmpty(value) ||value.ToLower().Equals("all"))
         {
             return FindAll();
         }
