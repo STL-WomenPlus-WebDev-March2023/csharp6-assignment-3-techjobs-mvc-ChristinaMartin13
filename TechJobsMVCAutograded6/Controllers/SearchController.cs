@@ -22,7 +22,7 @@ public class SearchController : Controller
     {
         List<Job> jobs = new List<Job>();
 
-        if (string.IsNullOrEmpty(searchType) || searchType.ToLower() == "View All")
+        if (string.IsNullOrEmpty(searchType) || searchType.ToLower() == "all")
         {
     
             jobs = JobData.FindAll().ToList();
